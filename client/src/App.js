@@ -9,13 +9,16 @@ import DispositionCreate from './Components/Dispositions/DispositionCreate';
 import DispositionUpdate from './Components/Dispositions/DispositionUpdate';
 import LeadUpdate from './Components/Leads/LeadUpdate';
 import LeadDelete from './Components/Leads/LeadDelete';
+import AdminLead from './Components/Admin/LeadAdmin';
+import '../src/App.css';
+
 
 
 export default () => {
   return <div>
     <nav className="navbar navbar-expand-lg  navbar-light bg-light">
       <a className="navbar-brand" href="/">
-      <img src="/BND.jpeg" width="50" height="50" alt=""></img></a>
+        <img src="/BND.jpeg" width="50" height="50" alt=""></img></a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
@@ -24,11 +27,14 @@ export default () => {
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="/ViewCampaign">Campaigns</a>
-          </li>
-          <li className="nav-item">
+          </li> */}
+          {/* <li className="nav-item">
             <a className="nav-link" href="/ViewDisposition">Dispositions</a>
+          </li> */}
+          <li className="nav-item">
+            <a className="nav-link" href="/AdminLead">Admin</a>
           </li>
         </ul>
       </div>
@@ -44,10 +50,11 @@ export default () => {
           <Route path="/DeleteLead" component={LeadDelete} />
           <Route exact path="/" component={LeadView} />
           <Route path="/AddCampaign" component={CampaignCreate} />
-          <Route path="/ViewCampaign" component={CampaignView} />
+          {/* <Route path="/ViewCampaign" component={CampaignView} /> */}
           <Route path="/ViewDisposition" component={DispositionView} />
           <Route path="/AddDisposition" component={DispositionCreate} />
           <Route path="/UpdateDisposition" component={DispositionUpdate} />
+          <Route path="/AdminLead" component={AdminLead} />
         </Switch>
       </BrowserRouter>
     </div>

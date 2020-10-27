@@ -5,7 +5,7 @@ import axios from 'axios';
 export default()=>{
     const location = useLocation();
     const leadId = location.state.id;
-    const[lead, setLead]=useState({});
+    //const[lead, setLead]=useState({});
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [Address, setAddress] = useState('');
@@ -18,15 +18,17 @@ export default()=>{
 
     const fetchLead = async()=>{
         const res = await axios.get(`http://localhost:4001/${leadId}`);
-        setLead(res.data);
+        //setLead(res.data);
         setFirstName(res.data.firstName);
         setLastName(res.data.lastName);
         setAddress(res.data.Address);
         setCity(res.data.City);
         setZip(res.data.Zip);
-        setCampaign(res.data.Type);
+        if(typeof res.data.Type === 'undefined'){setCampaign('');}
+        //setCampaign(res.data.Type);
         setphone(res.data.Phone );
-        setDisposition(res.data.Xencall);
+        //setDisposition(res.data.Xencall);
+        if(typeof res.data.Xencall === 'undefined'){setDisposition('');}
     };
 
     useEffect(()=>{fetchLead()},[]);
